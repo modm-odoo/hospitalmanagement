@@ -1,11 +1,13 @@
 from odoo import fields,models
 
 class Room(models.Model):
-    _name = "room"
+    _name = "hospiman.roomfield"
 
     roomno = fields.Integer("RoomNo")
-    Allotto = fields.Char("Name",required=True)
+    allotto = fields.One2many('hospiman.patient','roomrequire')
     roomtype = fields.Selection(
         string ="RoomType",
         selection = [('ac','AC'),('nonac','NonAC')])
     price = fields.Integer("Price")
+
+    

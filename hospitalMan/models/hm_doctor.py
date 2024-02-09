@@ -1,7 +1,7 @@
 from odoo import fields,models
 
 class Doctor(models.Model):
-    _name = 'doctor'
+    _name = 'hospiman.doctor'
 
     dname = fields.Char("DoctorName")
     did = fields.Integer("Doctor Id")
@@ -9,8 +9,8 @@ class Doctor(models.Model):
         string ="Gender",
         selection = [('male','Male'),('female','Female')])
     contactno = fields.Integer("contactno")
-    Department = fields.Selection(
+    department = fields.Selection(
         string ="Specialist in",
         selection = [('cardiologist','Cardio-Heart'),('skincare','Skin'),('ent','ENT'),('kneespecialist','Surguon-knee')])
-    Patient = fields.Char("PatientName")
+    patient = fields.Many2one('hospiman.patient')
     # availableon = time_availability = fields.Date("Date Availability")

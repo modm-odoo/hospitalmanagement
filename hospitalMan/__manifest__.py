@@ -8,5 +8,5 @@
     'installable': True,
     'application': True,
     'license': 'LGPL-3',
-    'depends':['base']
+    'depends':['base'],
 }
