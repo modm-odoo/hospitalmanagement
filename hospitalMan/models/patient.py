@@ -7,3 +7,5 @@ class HospitalManage(models.Model):
     address = fields.Text("Address")
     caseno = fields.Integer("Case")
     problem = fields.Char("Main Problem")
+    did = fields.Integer("did")
+    
