@@ -1,4 +1,4 @@
 id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
-something,again_something,model_hospiman_bill,base.group_user,1,1,1,1
-something,again_something,model_hospiman_doctor,base.group_user,1,1,1,1
+something,again_something,model_hospital_bill,base.group_user,1,1,1,1
+something,again_something,model_hospital_doctor,base.group_user,1,1,1,1
 
