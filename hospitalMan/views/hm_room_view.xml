@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="tree_room_view" model="ir.ui.view">
+        <field name="name">hospital.room.tree</field>
+        <field name="model">hospital.room</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="roomno"/>
+                <field name="allot_to"/>
+            </tree>
+        </field>
+    </record>
+    <record id="room_model_action" model="ir.actions.act_window">
+        <field name="name">Room</field>
+        <field name="res_model">hospital.room</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

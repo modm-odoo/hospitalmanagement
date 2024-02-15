@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="tree_bill" model="ir.ui.view">
+        <field name="name">hospital.bill.tree</field>
+        <field name="model">hospital.bill</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="patient"/>
+                <field name="case_from_patient"/>
+                <field name="doctor_name"/>
+            </tree>
+            </field>
+    </record>
+    <record id="bill_model_action" model="ir.actions.act_window">
+        <field name="name">Bill</field>
+        <field name="res_model">hospital.bill</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

@@ -12,5 +12,10 @@
     'depends':['base'],
     'data':[
         "security/ir.model.access.csv",
+        "views/hm_bill_view.xml",
+        "views/hm_doctor_view.xml",
+        "views/hm_patient_view.xml",
+        "views/hm_room_view.xml",
+        "views/hm_menu.xml",
     ],
 }
