@@ -13,7 +13,49 @@
             </field>
     </record>
 
+    <record id="form_doctor" model="ir.ui.view">
+        <field name="name">hospital.doctor.form</field>
+        <field name="model">hospital.doctor</field>
+        <field name="arch" type="xml">
+            <form string="Hospital Management">
+                <sheet>
+                    <div class="oe_title mb-3">
+                        <h1>
+                            <label for="name" />
+                            <field name="name" placeholder="Doctor Name"></field>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="gender"/>
+                        </group>
+                        <group>
+                            <field name="contact_no"/>
+                        </group>
+                        <group>
+                            <field name="department" />
+                        </group>
+                        <group>
+                            <field name="patients"/>
+                        </group>
+                        </group>
+                    </sheet>
+                    </form>
+                    </field>
+                    </record>
 
+                    <record id="doctor_search" model="ir.ui.view">
+                        <field name="name">hospital.doctor.search</field>
+                        <field name="model">hospital.doctor</field>
+                        <field name="arch" type="xml">
+                            <search>
+                                <field name="name"></field>
+                                <field name="department"></field>
+                                <filter string="Department" name="department" context="{'group_by':'department'}"/>
+
+                            </search>
+                        </field>
+                    </record>
 
 
     <record id="doctor_model_action" model="ir.actions.act_window">

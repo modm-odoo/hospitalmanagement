@@ -8,9 +8,56 @@
                 <field name="patient"/>
                 <field name="case_from_patient"/>
                 <field name="doctor_name"/>
+                <field name="bill_no"/>
             </tree>
             </field>
     </record>
+
+    <record id="form_bill" model="ir.ui.view">
+        <field name="name">hospital.bill.form</field>
+        <field name="model">hospital.bill</field>
+        <field name="arch" type="xml">
+            <form string="Hospital Management">
+                <sheet>
+                    <div class="oe_title mb-3">
+                        <h1>
+                            <label for="bill_no" />
+                            <field name="bill_no" placeholder=""></field>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="patient"/>
+                        </group>
+                        <group>
+                            <field name="case_from_patient"/>
+                        </group>
+                        <group>
+                            <field name="doctor_name" />
+                        </group>
+                        <group>
+                            <field name="charges"/>
+                        </group>
+                        </group>
+                    </sheet>
+                    </form>
+                    </field>
+                    </record>
+
+                    <record id="bill_search" model="ir.ui.view">
+                        <field name="name">hospital.bill.search</field>
+                        <field name="model">hospital.bill</field>
+                        <field name="arch" type="xml">
+                            <search>
+                                <field name="patient"></field>
+                                <field name="doctor_name"></field>
+                                <field name="bill_no"></field>
+                                <filter string="Doctor" name="doctor_name" context="{'group_by':'doctor_name'}"/>
+                            </search>
+                        </field>
+                    </record>
+
+
     <record id="bill_model_action" model="ir.actions.act_window">
         <field name="name">Bill</field>
         <field name="res_model">hospital.bill</field>

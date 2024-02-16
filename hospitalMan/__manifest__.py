@@ -12,6 +12,7 @@
     'depends':['base'],
     'data':[
         "security/ir.model.access.csv",
+        "data/sequence.xml",
         "views/hm_bill_view.xml",
         "views/hm_doctor_view.xml",
         "views/hm_patient_view.xml",

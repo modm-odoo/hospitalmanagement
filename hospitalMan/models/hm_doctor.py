@@ -14,4 +14,3 @@ class Doctor(models.Model):
         string ="Specialist in",
         selection = [("cardiologist","Cardio-Heart"),("skincare","Skin"),("ent","ENT"),("kneespecialist","Surguon-knee")])
     patients = fields.One2many("hospital.patient","assign_doc")
-    # availableon = time_availability = fields.Date("Date Availability")
