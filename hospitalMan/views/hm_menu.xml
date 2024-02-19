@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-<menuitem id="test_menu_hm" name="Hospital Management">
-    <menuitem id="patient_menu" name="Patient">
-        <menuitem id="patient_model_menu_action" name="Patient Details" action="patient_model_action"/>
+    <menuitem id="root_menu_hm" name="Hospital Management">
+        <menuitem id="patient_menu" name="Patient">
+            <menuitem id="patient_model_menu_action" name="Patient Details"
+                action="hm_patient_model_action" />
+        </menuitem>
+        <menuitem id="doctor_menu" name="Doctor">
+            <menuitem id="doctor_type_menu_action" name="Doctor Details"
+                action="hm_doctor_model_action" />
+        </menuitem>
+        <menuitem id="room_menu" name="Room">
+            <menuitem id="room_type_menu_action" name="Room Details" action="hm_room_model_action" />
+        </menuitem>
+        <menuitem id="bill_menu" name="Bill">
+            <menuitem id="bill_type_menu_action" name="Bill Details" action="hm_bill_model_action" />
+        </menuitem>
     </menuitem>
-    <menuitem id="doctor_menu" name="Doctor">
-        <menuitem id="doctor_type_menu_action" name="Doctor Details" action="doctor_model_action"/>
-    </menuitem>
-    <menuitem id="room_menu" name="Room">
-        <menuitem id="room_type_menu_action" name="Room Details" action="room_model_action"/>
-    </menuitem>
-    <menuitem id="bill_menu" name="Bill">
-        <menuitem id="bill_type_menu_action" name="Bill Details" action="bill_model_action"/>
-    </menuitem>
-</menuitem>
 </odoo>

@@ -7,10 +7,10 @@ class Doctor(models.Model):
 
     name = fields.Char("Doctor Name")
     gender = fields.Selection(
-        string ="Gender1",
-        selection = [("male","Male"),("female","Female")])
+        string ="Gender",
+        selection = [("male", "Male"),("female", "Female")])
     contact_no = fields.Integer("Contact No")
     department = fields.Selection(
         string ="Specialist in",
-        selection = [("cardiologist","Cardio-Heart"),("skincare","Skin"),("ent","ENT"),("kneespecialist","Surguon-knee")])
-    patients = fields.One2many("hospital.patient","assign_doc")
+        selection = [("cardiologist", "Cardio-Heart"),("skincare", "Skin"),("ent", "ENT"),("kneespecialist", "Surguon-knee")])
+    patients_ids = fields.One2many("hospital.patient", "assign_doc_id")

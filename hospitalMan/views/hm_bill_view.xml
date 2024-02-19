@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <record id="tree_bill" model="ir.ui.view">
+    <record id="hm_bill_tree_view" model="ir.ui.view">
         <field name="name">hospital.bill.tree</field>
         <field name="model">hospital.bill</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="patient"/>
-                <field name="case_from_patient"/>
-                <field name="doctor_name"/>
-                <field name="bill_no"/>
+                <field name="patient_id" />
+                <field name="case_from_patient" />
+                <field name="doctor_name_id" />
+                <field name="bill_no" />
             </tree>
-            </field>
+        </field>
     </record>
 
-    <record id="form_bill" model="ir.ui.view">
+    <record id="hm_bill_form_view" model="ir.ui.view">
         <field name="name">hospital.bill.form</field>
         <field name="model">hospital.bill</field>
         <field name="arch" type="xml">
@@ -27,38 +27,39 @@
                     </div>
                     <group>
                         <group>
-                            <field name="patient"/>
+                            <field name="patient_id" />
+                            <field name="case_from_patient" />
+                            <field name="doctor_name_id" />
                         </group>
                         <group>
-                            <field name="case_from_patient"/>
+                            <field name="room_no" />
+                            <field name="room_type" />
+                            <field name="room_price" />
+                            <field name="medicine_price" />
+                            <field name="total_bill" />
                         </group>
-                        <group>
-                            <field name="doctor_name" />
-                        </group>
-                        <group>
-                            <field name="charges"/>
-                        </group>
-                        </group>
-                    </sheet>
-                    </form>
-                    </field>
-                    </record>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
-                    <record id="bill_search" model="ir.ui.view">
-                        <field name="name">hospital.bill.search</field>
-                        <field name="model">hospital.bill</field>
-                        <field name="arch" type="xml">
-                            <search>
-                                <field name="patient"></field>
-                                <field name="doctor_name"></field>
-                                <field name="bill_no"></field>
-                                <filter string="Doctor" name="doctor_name" context="{'group_by':'doctor_name'}"/>
-                            </search>
-                        </field>
-                    </record>
+    <record id="hm_bill_search_view" model="ir.ui.view">
+        <field name="name">hospital.bill.search</field>
+        <field name="model">hospital.bill</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="patient_id"></field>
+                <field name="doctor_name_id"></field>
+                <field name="bill_no"></field>
+                <filter string="Doctor" name="doctor_name_id"
+                    context="{'group_by':'doctor_name_id'}" />
+            </search>
+        </field>
+    </record>
 
 
-    <record id="bill_model_action" model="ir.actions.act_window">
+    <record id="hm_bill_model_action" model="ir.actions.act_window">
         <field name="name">Bill</field>
         <field name="res_model">hospital.bill</field>
         <field name="view_mode">tree,form</field>

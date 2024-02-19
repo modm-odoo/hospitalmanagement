@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <record id="tree_patient_view" model="ir.ui.view">
+    <record id="hm_patient_tree_view" model="ir.ui.view">
         <field name="name">hospital.patient.tree</field>
         <field name="model">hospital.patient</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="name"/>
-                <field name="gender"/>
-                <field name="case_no"/>
-                <field name="assign_doc"/>
-                <field name="age"/>
+                <field name="name" />
+                <field name="gender" />
+                <field name="case_no" />
+                <field name="assign_doc_id" />
+                <field name="age" />
+                <field name="room_no"/>
+                <field name="room_type"/>
             </tree>
         </field>
     </record>
 
-    <record id="form_patient" model="ir.ui.view">
+    <record id="hm_patient_form_view" model="ir.ui.view">
         <field name="name">hospital.patient.form</field>
         <field name="model">hospital.patient</field>
         <field name="arch" type="xml">
@@ -29,57 +31,48 @@
                     <div class="o_field_widget o_field_image oe_avatar">
                         <div class="d-inline-block position-relative">
                             <div class="d-flex justify-content-between w-100 bottom-0">
-                                <field name="client_image" widget="image"/>
+                                <field name="client_image" widget="image" />
                             </div>
                         </div>
                     </div>
                     <group>
                         <group>
-                            <field name="gender"/>
-                        </group>
-                        <group>
-                            <field name="address"/>
-                        </group>
-                        <group>
+                            <field name="gender" />
+                            <field name="address" />
                             <field name="case_no" />
+                            <field name="problem" />
                         </group>
                         <group>
-                            <field name="problem"/>
+                            <field name="date_of_birth" />
+                            <field name="age" />
+                            <field name="assign_doc_id" />
+                            <field name="room_no" />
+                            <field name="room_type"/>
                         </group>
-                        <group>
-                            <field name="date_of_birth"/>
-                        </group>
-                        <group>
-                            <field name="age"/>
-                        </group>
-                        <group>
-                            <field name="assign_doc"/>
-                        </group>
-                        
-                        </group>
-                    </sheet>
-                    </form>
-                    </field>
-                    </record>
-            
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
-                    <record id="patient_search" model="ir.ui.view">
-                        <field name="name">hospital.patient.search</field>
-                        <field name="model">hospital.patient</field>
-                        <field name="arch" type="xml">
-                            <search>
-                                <field name="name"></field>
-                                <field name="case_no"></field>
-                                <field name="assign_doc"></field>
-                                <field name="age"></field>
-                                <filter string="Teenagers" name="age" domain="[('age', '&lt;', '18')]"/>
-                                <filter string="Doctor" name="assign_doc" context="{'group_by':'assign_doc'}"/>
-                                <filter string="Male" name="gender" context="{'group_by':'gender'}"/>
-                            </search>
-                        </field>
-                    </record>
 
-    <record id="patient_model_action" model="ir.actions.act_window">
+    <record id="hm_patient_search_view" model="ir.ui.view">
+        <field name="name">hospital.patient.search</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"></field>
+                <field name="case_no"></field>
+                <field name="assign_doc_id"></field>
+                <field name="age"></field>
+                <filter string="Teenagers" name="age" domain="[('age', '&lt;', '18')]" />
+                <filter string="Doctor" name="assign_doc_id" context="{'group_by':'assign_doc_id'}" />
+                <filter string="Male" name="gender" context="{'group_by':'gender'}" />
+            </search>
+        </field>
+    </record>
+
+    <record id="hm_patient_model_action" model="ir.actions.act_window">
         <field name="name">Patient</field>
         <field name="res_model">hospital.patient</field>
         <field name="view_mode">tree,form</field>

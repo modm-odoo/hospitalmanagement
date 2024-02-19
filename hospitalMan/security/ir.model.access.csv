@@ -1,7 +1,7 @@
 id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
-something,again_something,model_hospital_bill,base.group_user,1,1,1,1
-something1,again_something1,model_hospital_doctor,base.group_user,1,1,1,1
-something2,again_something2,model_hospital_patient,base.group_user,1,1,1,1
-something3,again_something3,model_hospital_room,base.group_user,1,1,1,1
+access_hospital_bill,hospital_bill,model_hospital_bill,base.group_user,1,1,1,1
+access_hospital_doctor,hospital_doctor,model_hospital_doctor,base.group_user,1,1,1,1
+access_hospital_patient,hospital_patient,model_hospital_patient,base.group_user,1,1,1,1
+access_hospital_room,hospital_room,model_hospital_room,base.group_user,1,1,1,1
 
 
