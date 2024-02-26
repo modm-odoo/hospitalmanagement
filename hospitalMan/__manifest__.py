@@ -8,8 +8,9 @@
     "summary": "The best app for hospital management",
     "installable": True,
     "application": True,
-    "license": "LGPL-3",
+    "license": "OEEL-1",
     "depends":["base"],
+
     "data": [
         "security/ir.model.access.csv",
         "data/sequence.xml",

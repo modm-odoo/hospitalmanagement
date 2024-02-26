@@ -4,6 +4,7 @@ from odoo import fields,models
 
 class Doctor(models.Model):
     _name = "hospital.doctor"
+    # _inherit = ""
 
     name = fields.Char("Doctor Name")
     gender = fields.Selection(

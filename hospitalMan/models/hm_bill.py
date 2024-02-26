@@ -5,6 +5,7 @@ from odoo import fields,models,api
 class Bill(models.Model):
     _name = "hospital.bill"
 
+    name = fields.Char("Name")
     patient_id = fields.Many2one("hospital.patient", string="Patient", required = True)
     case_from_patient = fields.Char(related="patient_id.case_no", readonly = True)
     doctor_name_id = fields.Many2one("hospital.doctor", related="patient_id.assign_doc_id", readonly=True, store=True)
@@ -25,6 +26,8 @@ class Bill(models.Model):
         vals["bill_no"] = self.env["ir.sequence"].next_by_code("hospital.bill")
         return super().create(vals)
 
+    def action_mark_as_done(self):
+        return True
 
 
     

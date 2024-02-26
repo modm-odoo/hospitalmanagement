@@ -17,7 +17,7 @@ class HospitalManage(models.Model):
     problem = fields.Char("Main Problem")
     assign_doc_id = fields.Many2one("hospital.doctor", required=True)
     client_image = fields.Image("Image", max_width=1920, max_height=1920)  
-    room_no = fields.Many2one("hospital.room")
+    room_no = fields.Many2one("hospital.room", options="{'no_create': True}")
     room_type = fields.Selection(related="room_no.room_type")
     room_price = fields.Integer(related="room_no.price")
     

@@ -18,6 +18,10 @@
         <field name="model">hospital.bill</field>
         <field name="arch" type="xml">
             <form string="Hospital Management">
+                <header>
+                    <button name="action_mark_as_done" type="object" class='bg-primary text-white'
+                        string="Mark as Done" />
+                </header>
                 <sheet>
                     <div class="oe_title mb-3">
                         <h1>
