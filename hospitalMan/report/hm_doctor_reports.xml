@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="report_doctor_patient_details" model="ir.actions.report">
+        <field name="name">Patient Report</field>
+        <field name="model">hospital.doctor</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hospitalMan.report_hm_doctor</field>
+        <field name="report_file">hospitalMan.report_hm_doctor</field>
+        <field name="print_report_name">'Patient Report'</field>
+        <field name="binding_model_id" ref="model_hospital_doctor"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="report_room_patient_details" model="ir.actions.report">
+        <field name="name">Bill Details</field>
+        <field name="model">hospital.bill</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hospitalMan.report_hm_bill</field>
+        <field name="report_file">hospitalMan.report_hm_bill</field>
+        <field name="print_report_name">'Bill details'</field>
+        <field name="binding_model_id" ref="model_hospital_bill"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

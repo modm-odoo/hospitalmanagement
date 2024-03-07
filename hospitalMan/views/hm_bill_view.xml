@@ -58,14 +58,28 @@
                 <field name="bill_no"></field>
                 <filter string="Doctor" name="doctor_name_id"
                     context="{'group_by':'doctor_name_id'}" />
+                    <filter string="Patient" name="doctor_name_id"
+                    context="{'group_by':'patient_id'}" />
             </search>
         </field>
     </record>
 
+    <record id="hm_bill_graph_view" model="ir.ui.view">
+        <field name="name">hospital.bill.graph</field>
+        <field name="model">hospital.bill</field>
+        <field name="arch" type="xml">
+            <graph>
+                <field name="patient_id"></field>
+                <field name="total_bill" type="measure"></field>
+                <field name="medicine_price"></field>
+                <field name="room_price"></field>
+            </graph>
+        </field>
+    </record>
 
     <record id="hm_bill_model_action" model="ir.actions.act_window">
         <field name="name">Bill</field>
         <field name="res_model">hospital.bill</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,graph</field>
     </record>
 </odoo>

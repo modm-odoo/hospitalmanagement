@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Template for the report -->
+    <template id="report_hm_doctor">
+        <t t-foreach="docs" t-as="doctor">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>
+                            <strong>Doctor Name: </strong>
+                            <span t-field="doctor.name" />
+                        </h2>
+                    </div>
+                    <div>
+                        <strong>Department: </strong>
+                        <span t-field="doctor.department" />
+                    </div>
+                    <div>
+                        <strong>Contact No : </strong>
+                        <span t-field="doctor.contact_no" />
+                    </div>
+                    <t t-set="patients" t-value="doctor.mapped('patients_ids')" />
+                    <t t-if="len(patients) == 0">
+                        <h3>There are no patients yet!</h3>
+                    </t>
+                    <t t-else="" t-call="hospitalMan.report_patient_details_table" />
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_patient_details_table">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Case No</th>
+                    <th>Problem</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr t-foreach="patients" t-as="patient">
+                    <td>
+                        <span t-field="patient.name" />
+                    </td>
+                    <td>
+                        <span t-field="patient.gender" />
+                    </td>
+                    <td>
+                        <span t-field="patient.case_no" />
+                    </td>
+                    <td>
+                        <span t-field="patient.problem" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </template>
+
+    <template id="report_hm_bill">
+        <t t-foreach="docs" t-as="bill">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>
+                            <strong>Bill No: </strong>
+                            <span t-field="bill.bill_no" />
+                        </h2>
+                    </div>
+                    <div>
+                        <strong>Patient: </strong>
+                        <span t-field="bill.patient_id" />
+                    </div>
+                    <div>
+                        <strong>Case No : </strong>
+                        <span t-field="bill.case_from_patient" />
+                    </div>
+                    <div>
+                        <strong>Assigned Doctor : </strong>
+                        <span t-field="bill.doctor_name_id" />
+                    </div>
+                    <div>
+                        <strong>Room No : </strong>
+                        <span t-field="bill.room_no" />
+                    </div>
+                    <div>
+                        <strong>Room Price : </strong>
+                        <span t-field="bill.room_price" />
+                    </div>
+                    <div>
+                        <strong>Medicine Price : </strong>
+                        <span t-field="bill.medicine_price" />
+                    </div>
+                    <div>
+                        <strong>Total Price : </strong>
+                        <span t-field="bill.total_bill" />
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

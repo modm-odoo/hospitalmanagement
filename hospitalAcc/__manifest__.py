@@ -11,4 +11,8 @@
     'module_type': 'official',
     "license": "OEEL-1",
     "depends":["base", "account", "hospitalMan"],
+    "data": [
+        "security/ir.model.access.csv",
+        "views/customer_view.xml",
+    ]
 }

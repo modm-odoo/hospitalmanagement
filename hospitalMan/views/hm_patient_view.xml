@@ -16,6 +16,26 @@
         </field>
     </record>
 
+    <record id="hm_patient_kanban_view" model="ir.ui.view">
+        <field name="name">hospital.management.kanban.view</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <kanban string="Patients" editable="top" default_group_by="assign_doc_id" quick_create="True">
+                <template>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <h2><field name="name"/></h2>
+                            <p class="my-0"><b>Gender : </b><field name="gender" /></p>
+                            <p class="my-0"><b>Date Of Birth : </b><field name="date_of_birth" /></p>
+                            <p class="my-0"><b>Room no : </b><field name="room_no" /></p>
+                            <p class="my-0"><b>Room Price : </b><field name="room_price" /></p>
+                        </div>
+                    </t>
+                </template>
+            </kanban>
+        </field>
+    </record>
+
     <record id="hm_patient_form_view" model="ir.ui.view">
         <field name="name">hospital.patient.form</field>
         <field name="model">hospital.patient</field>
@@ -43,10 +63,11 @@
                             <field name="problem" />
                         </group>
                         <group>
+                            <field name="start_date"/>
                             <field name="date_of_birth" />
                             <field name="age" />
-                            <field name="assign_doc_id" />
-                            <field name="room_no" />
+                            <field name="assign_doc_id" options="{'no_create': True}"/>
+                            <field name="room_no" options="{'no_create': True}" />
                             <field name="room_type"/>
                         </group>
                     </group>
@@ -66,15 +87,28 @@
                 <field name="assign_doc_id"></field>
                 <field name="age"></field>
                 <filter string="Teenagers" name="age" domain="[('age', '&lt;', '18')]" />
+                <filter string="Room Acquired" name="room_acquired" domain="[('room_no', '!=', None)]" />
                 <filter string="Doctor" name="assign_doc_id" context="{'group_by':'assign_doc_id'}" />
                 <filter string="Male" name="gender" context="{'group_by':'gender'}" />
             </search>
+        </field>
+    </record>
+    
+    <record id="hm_patient_gantt_view" model="ir.ui.view">
+        <field name="name">hospital.patient.view.gantt</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <gantt date_start="start_date" date_stop="end_date"
+                string="Doctor Book" 
+                default_group_by="assign_doc_id">
+                <field name="assign_doc_id"></field>
+            </gantt>
         </field>
     </record>
 
     <record id="hm_patient_model_action" model="ir.actions.act_window">
         <field name="name">Patient</field>
         <field name="res_model">hospital.patient</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,kanban,gantt</field>
     </record>
 </odoo>

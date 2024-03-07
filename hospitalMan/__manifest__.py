@@ -12,6 +12,8 @@
     "depends":["base"],
 
     "data": [
+        "report/hm_doctor_reports.xml",
+        "report/hm_doctor_templates.xml",
         "security/ir.model.access.csv",
         "data/sequence.xml",
         "views/hm_bill_view.xml",

@@ -12,8 +12,8 @@ class Bill(models.Model):
     bill_no = fields.Char("Bill-No")
     room_no = fields.Many2one(related="patient_id.room_no") 
     room_type = fields.Selection(related="patient_id.room_type")
-    room_price = fields.Integer(related="patient_id.room_price")
-    medicine_price = fields.Integer("Medicine Cost")
+    room_price = fields.Integer(string="Room Price", related="patient_id.room_price", store=True)
+    medicine_price = fields.Integer("Medicine Cost", store=True)
     total_bill = fields.Integer("Total Bill", compute="_compute_total_bill", store=True)
 
     @api.depends("room_price", "medicine_price")

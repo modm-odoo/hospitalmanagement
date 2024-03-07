@@ -6,19 +6,18 @@ class Room(models.Model):
     _name = "hospital.room"
 
     name = fields.Char("Room No")
-    # _sql_constraints = [
-    #     ("unique_room_no", "unique(room_no)", "Room No must be unique.")
-    # ]
-    # @api.constrains("room_no")
-    # def _check_room_no(self):
-    #     if self.room_no < 1 or self.room_no > 20:
-    #         raise ValidationError("Room No must be between 1 and 20.")
-
     room_type = fields.Selection(
         string="Room Type",
-        selection=[("ac", "AC - 1000"), ("nonac", "NonAC - 750")]
+        selection=[("ac", "AC - 1000"), ("nonac", "NonAC - 750")], store=True
     )
     price = fields.Integer("Price", compute="_compute_price", store=True)
+    allotted_patients = fields.One2many("hospital.patient",inverse_name="room_no")
+    total_patients = fields.Integer(compute="_compute_total_patients", store=True)
+
+    @api.depends("allotted_patients")
+    def _compute_total_patients(self):
+        for record in self:
+            record.total_patients = len(record.allotted_patients)
 
     @api.depends("room_type")
     def _compute_price(self):
