@@ -9,13 +9,15 @@
     "installable": True,
     "application": True,
     "license": "OEEL-1",
-    "depends":["base"],
+    "depends":["base", "website"],
 
     "data": [
         "report/hm_doctor_reports.xml",
         "report/hm_doctor_templates.xml",
         "security/ir.model.access.csv",
         "data/sequence.xml",
+        "data/menu.xml",
+        "views/hm_doctor_template.xml",
         "views/hm_bill_view.xml",
         "views/hm_doctor_view.xml",
         "views/hm_patient_view.xml",

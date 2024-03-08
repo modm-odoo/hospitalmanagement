@@ -23,19 +23,20 @@
             <kanban string="Patients" editable="top" default_group_by="assign_doc_id" quick_create="True">
                 <template>
                     <t t-name="kanban-box">
-                        <div class="oe_kanban_global_click">
-                            <h2><field name="name"/></h2>
-                            <p class="my-0"><b>Gender : </b><field name="gender" /></p>
-                            <p class="my-0"><b>Date Of Birth : </b><field name="date_of_birth" /></p>
-                            <p class="my-0"><b>Room no : </b><field name="room_no" /></p>
-                            <p class="my-0"><b>Room Price : </b><field name="room_price" /></p>
+                        <field name="room_no" invisible="1"></field>
+                        <div t-attf-class="#{kanban_color(record.room_no.raw_value)} oe_kanban_global_click">
+                            <h2 style="color: #333;"><field name="name"/></h2>
+                            <p class="my-0"><i class="fa fa-user"/><field name="gender" style="color: #777;" /></p>
+                            <p class="my-0"><b style="color: #1C6911;">Date Of Birth : </b><field name="date_of_birth" style="color: #777;" /></p>
+                            <p class="my-0"><b style="color: #26D3DE;">Room no : </b><field name="room_no" style="color: #777;" /></p>
+                            <p class="my-0"><b style="color: #F05C3E;">Room Price : </b><field name="room_price" style="color: #777;" /></p>
                         </div>
                     </t>
                 </template>
             </kanban>
         </field>
     </record>
-
+    
     <record id="hm_patient_form_view" model="ir.ui.view">
         <field name="name">hospital.patient.form</field>
         <field name="model">hospital.patient</field>

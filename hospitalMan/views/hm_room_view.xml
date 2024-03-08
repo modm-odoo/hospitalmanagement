@@ -61,18 +61,4 @@
         <field name="view_mode">tree,form,graph</field>
     </record>
 
-    <record id="room_type_ac_action" model="ir.actions.act_window">
-        <field name="name">Rooms</field>
-        <field name="res_model">hospital.patient</field>
-        <field name="view_mode">tree,form</field>
-        <field name="domain">[('room_type', '=', 'ac')]</field>
-    </record>
-
-    <record id="room_type_nonac_action" model="ir.actions.act_window">
-        <field name="name">Rooms</field>
-        <field name="res_model">hospital.patient</field>
-        <field name="view_mode">tree,form</field>
-        <field name="domain">[('room_type', '=', 'nonac')]</field>
-    </record>
-
 </odoo>
