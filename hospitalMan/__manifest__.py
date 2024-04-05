@@ -4,7 +4,7 @@
 {
     "name": "HospitalManagement",
     "description": "this is the description",
-    "version": "1.0",
+    "version": "17.0.0.1.0",
     "summary": "The best app for hospital management",
     "installable": True,
     "application": True,

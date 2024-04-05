@@ -31,9 +31,7 @@
                             <field name="contact_no" />
                             <field name="department" />
                         </group>
-                        <group>
                             <field name="patients_ids" />
-                        </group>
                     </group>
                 </sheet>
             </form>

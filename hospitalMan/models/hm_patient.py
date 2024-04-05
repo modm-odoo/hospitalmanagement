@@ -7,6 +7,7 @@ class HospitalManage(models.Model):
     _name = "hospital.patient"
 
     name = fields.Char("Name", required=True)
+    partner_id = fields.Many2one('res.partner', string='Partner', ondelete='cascade')
     address = fields.Text("Address")
     gender = fields.Selection(
         string ="Gender",
